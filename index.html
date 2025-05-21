@@ -1,92 +1,167 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>The Schipperke coin</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon.png">
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schipperke Coin 🐾</title>
+  <link rel="icon" type="image/png" href="media/icons/icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --accent: #00FFA3;
+      --bg: #000000;
+      --text: #ffffff;
+      --muted: #aaaaaa;
+      --box: #111111;
+      --border: #333333;
+    }
 
-		<!-- Header -->
-		<header id="header">
-			<h1 style="font-size: 2rem; color: white;">
-			The Schipperke coin
-			</h1>
-		</header>
+    * {
+      box-sizing: border-box;
+    }
 
-		<!-- Embed the YouTube video -->
-		<div class="video-container" style="margin-top: 20px; margin-bottom: 40px;">
-			<iframe
-				width="336"
-				height="196"
-				src="https://www.youtube.com/embed/DUmPn3J768Y"
-				title="YouTube video player"
-				frameborder="0"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen>
-			</iframe>
-		</div>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Roboto Mono', monospace;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 20px;
+    }
 
-		<!-- Contract address -->
-		<div class="row gx-4 gx-lg-5 justify-content-center">
-				<div class="col-lg-10"> <!-- Adjusted column width -->
-						<!-- Contract Address Section -->
-						<div class="contract-container" style="max-width: 800px; margin: 0 auto;">
-								<div class="contract-address" id="contractAddress">
-										0x0000000000000000000000000000000000000000
-								</div>
-								<button class="copy-button" onclick="copyToClipboard()">Copy</button>
-								<div class="copy-confirmation" id="copyConfirmation">Copied!</div>
-						</div>
-				</div>
-		</div>
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 10px 20px;
+    }
 
-		<!-- Logos -->
-		<div class="logo-container">
-				<a href="https://t.me/schipperkecoinportal" target="_blank">
-						<img src="images/telegram.png" alt="telegram" class="logo">
-				</a>
-				<a href="https://x.com/SchipkCoin" target="_blank">
-						<img src="images/x.png" alt="X" class="logo">
-				</a>
-				<!--
-		    <a href="https://dexscreener.com" target="_blank">
-		        <img src="images/dexscreener.png" alt="DexScreener" class="logo">
-		    </a>
-		    <a href="https://solana.com" target="_blank">
-		        <img src="images/solana.png" alt="Solana" class="logo">
-		    </a>
-				-->
-				<a href="https://www.tiktok.com/@schipperke.coin" target="_blank">
-		        <img src="images/tiktok.png" alt="Tiktok" class="logo">
-		    </a>
-		    <a href="https://www.youtube.com/@SchipperkeCoin" target="_blank">
-		        <img src="images/youtube.png" alt="YouTube" class="logo">
-		    </a>
-		</div>
+    .intro-box {
+      background-color: var(--box);
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 10px;
+      border: 1px solid var(--border);
+    }
 
+    h1 {
+      font-size: 2em;
+      color: var(--accent);
+      margin: 0 0 10px 0;
+    }
 
-		<!-- Scripts -->
-		<script src="assets/js/main.js"></script>
+    p {
+      font-size: 1.1em;
+      color: var(--text);
+      margin: 0;
+    }
 
-		<script>
-			function copyToClipboard() {
-				const contractAddress = document.getElementById('contractAddress').textContent;
-				const confirmation = document.getElementById('copyConfirmation');
+    img.hero {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 16px;
+      margin: 5px 0 10px 0;
+      border: 1px solid var(--border);
+    }
 
-				navigator.clipboard.writeText(contractAddress).then(() => {
-					// Show confirmation message
-					confirmation.classList.add('show');
-					setTimeout(() => {
-						confirmation.classList.remove('show'); // Hide after 2 seconds
-					}, 2000);
-				}).catch(err => {
-					console.error('Failed to copy: ', err);
-				});
-			}
-		</script>
+    .verse {
+      margin: 8px 0;
+      font-size: 1.05em;
+      color: var(--muted);
+      white-space: pre-line;
+      line-height: 1.4;
+    }
 
-	</body>
+    .highlight {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 50px;
+    }
+
+    .links a {
+      flex: 1 1 180px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--accent);
+      background-color: var(--box);
+      border: 1px solid var(--border);
+      padding: 12px 18px;
+      border-radius: 15px;
+      font-weight: bold;
+      transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+    }
+
+    .links a:hover {
+      background-color: var(--accent);
+      color: var(--bg);
+      border-color: var(--accent);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      color: #555;
+      font-size: 0.9em;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.6em;
+      }
+
+      .links {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="intro-box">
+      <h1>Schipperke Coin</h1>
+      <p>
+        Schipperke Coin is a creative, community-driven project built around AI-generated meme content featuring the Schipperke dog breed.
+        We explore the intersection of internet culture, decentralized coordination, and AI agents.
+        Our goal is to build joyful, transparent systems that empower online communities.<br><br>
+        <strong>Token will launch on Pump.fun soon.</strong>
+      </p>
+    </div>
+
+    <img src="media/bg03.png" alt="Schipperke Hero Image" class="hero" />
+
+    <div class="verse">
+      Schipperke Coin is building a <span class="highlight">resistance.</span><br>
+      A meme-fueled, crypto-native rebellion against extraction and control.<br>
+      For those who slip past the algorithm and <span class="highlight">build</span> with instinct.
+    </div>
+
+    <div class="verse">
+      We don’t farm each other for yield.<br>
+      We loop capital into code, art, and  <span class="highlight">shared voice.</span>
+    </div>
+
+    <div class="verse">
+      No kings. No insiders. No leash.<br>
+      If that bites—read the <a href="media/schipk_whitepaper.pdf" target="_blank" style="color: #00FFA3; font-weight: bold; text-decoration: underline;">manifesto</a>.
+    </div>
+
+    <div class="links">
+      <a href="https://t.me/schipperkecoinportal" target="_blank">Join the Portal 🌀</a>
+      <a href="https://x.com/home" target="_blank">Echo on X 🐾</a>
+      <a href="media/schipk_whitepaper.pdf" target="_blank">Read the Manifesto</a>
+    </div>
+
+    <footer>
+      © 2025 The Schipperke Collective
+    </footer>
+
+  </div>
+</body>
 </html>

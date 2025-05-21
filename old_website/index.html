@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>The Schipperke coin</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/icon.png">
+	</head>
+	<body class="is-preload">
+
+		<!-- Header -->
+		<header id="header">
+			<h1 style="font-size: 2rem; color: white;">
+			The Schipperke coin
+			</h1>
+		</header>
+
+		<!-- Embed the YouTube video -->
+		<div class="video-container" style="margin-top: 20px; margin-bottom: 40px;">
+			<iframe
+				width="336"
+				height="196"
+				src="https://www.youtube.com/embed/DUmPn3J768Y"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+				allowfullscreen>
+			</iframe>
+		</div>
+
+		<!-- Contract address -->
+		<div class="row gx-4 gx-lg-5 justify-content-center">
+				<div class="col-lg-10"> <!-- Adjusted column width -->
+						<!-- Contract Address Section -->
+						<div class="contract-container" style="max-width: 800px; margin: 0 auto;">
+								<div class="contract-address" id="contractAddress">
+										0x0000000000000000000000000000000000000000
+								</div>
+								<button class="copy-button" onclick="copyToClipboard()">Copy</button>
+								<div class="copy-confirmation" id="copyConfirmation">Copied!</div>
+						</div>
+				</div>
+		</div>
+
+		<!-- Logos -->
+		<div class="logo-container">
+				<a href="https://t.me/schipperkecoinportal" target="_blank">
+						<img src="images/telegram.png" alt="telegram" class="logo">
+				</a>
+				<a href="https://x.com/SchipkCoin" target="_blank">
+						<img src="images/x.png" alt="X" class="logo">
+				</a>
+				<!--
+		    <a href="https://dexscreener.com" target="_blank">
+		        <img src="images/dexscreener.png" alt="DexScreener" class="logo">
+		    </a>
+		    <a href="https://solana.com" target="_blank">
+		        <img src="images/solana.png" alt="Solana" class="logo">
+		    </a>
+				-->
+				<a href="https://www.tiktok.com/@schipperke.coin" target="_blank">
+		        <img src="images/tiktok.png" alt="Tiktok" class="logo">
+		    </a>
+		    <a href="https://www.youtube.com/@SchipperkeCoin" target="_blank">
+		        <img src="images/youtube.png" alt="YouTube" class="logo">
+		    </a>
+		</div>
+
+
+		<!-- Scripts -->
+		<script src="assets/js/main.js"></script>
+
+		<script>
+			function copyToClipboard() {
+				const contractAddress = document.getElementById('contractAddress').textContent;
+				const confirmation = document.getElementById('copyConfirmation');
+
+				navigator.clipboard.writeText(contractAddress).then(() => {
+					// Show confirmation message
+					confirmation.classList.add('show');
+					setTimeout(() => {
+						confirmation.classList.remove('show'); // Hide after 2 seconds
+					}, 2000);
+				}).catch(err => {
+					console.error('Failed to copy: ', err);
+				});
+			}
+		</script>
+
+	</body>
+</html>
